@@ -1,0 +1,42 @@
+// Create a method called handleLate for late to work punishment.
+//1. Input: Late(last_minute), Monthly Salary
+//2. Work Logic:
+// (1) 1-10 mins late: warning;
+// (2) 11-20 mins late: -100 in salary;
+// (3) 21-30 mins late: -200 in salary;
+// (4) 30+ mins late: deduction in one day salary;
+// (5) 60+ mins late: deduction in three days salary;
+//3. Output: How much money were deducted and the monthly salary left
+
+public class hrWork{
+	
+	public static void main(String[] args) {
+		handleLate(61, 14000);
+	}
+
+		public static int handleLate(int last_minute, int monthly_salary) {
+			int late = 1;
+			int faquan = 0;
+			if (last_minute <= 10) {
+				System.out.println("遅到" + last_minute + "分鐘: 警告");
+			} else if ((last_minute <=11) && (last_minute >=20)) {
+				faquan = 100;
+				System.out.println("遅到" + last_minute + "分鐘: 罰款" + faquan + "元");
+				System.out.println("今個月工資: " + (monthly_salary-faquan) + ".");
+			} else if ((last_minute <=21) && (last_minute > 30)) {
+				faquan = 200;
+				System.out.println("遅到" + last_minute + "分鐘: 罰款" + faquan + "元");
+				System.out.println("今個月工資: " + (monthly_salary-faquan) + ".");
+			} else if ((last_minute >= 31) && (last_minute <= 60 )) {
+				faquan = (monthly_salary/31)/2;
+				System.out.println("遅到" + last_minute + "分鐘以上: 扣除半日工資" + faquan + "元");
+				System.out.println("今個月工資: " + (monthly_salary-faquan) + ".");
+			} else {
+				faquan = (monthly_salary/31) * 3;
+				System.out.println("遅到" + last_minute + "分鐘以上: 按照曠工計算，扣除三日工資" + faquan + "元");
+				System.out.println("今個月工資: " + (monthly_salary-faquan*3) + ".");
+			}
+		return late;
+		}
+
+}
